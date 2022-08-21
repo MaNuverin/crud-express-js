@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title> 
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="navbar bg-gray-600">
+        <div class="navbar-start">
+            <div class="flex-1">
+                <h1 class="btn btn-ghost normal-case text-xl">Nuv</h1>
+            </div>
+        </div>
+        <div class="navbar-center">
+            <li class="p-2 space-x-2 list-none text-gray-200">
+                <a href="/">Beranda</a>
+                <a href="/about">About</a>
+                <a href="/api">api</a>
+                <a href="/contact">Contact</a>
+            </li>
+        </div>
+        <div class="navbar-end">
+            <a class="btn">Get started</a>
+        </div>
+    </div>
+    <div class="overflow-x-auto">
+        
+        <table class="table w-9/12 mx-auto my-2">
+            <thead>
+                <tr>
+                    <th>Nomor</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Favorite Color</th>
+                    <th>Lengkap</th>
+                </tr>
+            </thead>
+    <tbody>
+    <% if (Karyawan.length === 0) { %> 
+        <tr>
+            <td colspan="5">
+                <div class="alert alert-error shadow-lg  h-[50%] rounded-sm " role="alert">
+                    <div class="flex flex-wrap ">
+                    <span class="text-gray-900">Data Karyawan Tidak Ditemukan</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+    <% } %>
+    <% Karyawan.forEach((result, i)  => { let num = 1; %>
+        <tr>
+            <th><%= num += i %></th>
+            <td><%= result.nama %></td>
+            <td><%= result.email %></td>
+            <td><%= result.Color %></td>
+            <td>
+                <a href="/api/<%= result.nama %>" class="btn btn-error p-2 text-xs text-gray-200">detail</a>
+                <a href="/api/edit/<%= result.nama%>" class="btn btn-danger p-2 text-xs text-gray-200">Edit</a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+        </table>
+        <div class="flex justify-end">
+            <a href="/api/tambah" class="btn btn-secondary mt-2 text-xs mr-4 ">Tambahkan Karyawan</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<%- include('header')  %> 
+<title>Api id</title>
+<div class="my-4">
+  <label class="text-gray-200 ml-4 text-2xl  font-mono">Daftar Karyawan</label>
+</div>
+<% if (!Karyawan) { %>
+  <div class="alert alert-error shadow-lg w-[50%] h-[50%] rounded-sm ml-4" role="alert">
+    <div class="flex flex-wrap ">
+      <span class="text-gray-900">Data Karyawan Tidak Ditemukan</span>
+      <a href="/api" class="underline">Kembali Ke Home</a>
+    </div>
+  </div>
+<% } else { %> 
+<div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title"> <%= Karyawan.id  %></h2>
+    <p>Nama Karyawan : <%= Karyawan.nama %></p>
+    <p>Email : <%= Karyawan.email %></p>
+    <div class="card-actions flex ">
+      <a class=" text-xs text-gray-200 p-2 bg-rose-800 rounded-lg" href="/api/delete/<%= Karyawan.nama %>"  onclick="return confirm('yakin?')">hapus</a>
+      <a href="/api" class=" p-2 text-xs underline"><< Back To Home</a>
+    </div>
+  </div>
+</div>
+<% } %>  

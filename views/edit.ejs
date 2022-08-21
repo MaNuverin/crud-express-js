@@ -1,0 +1,21 @@
+<%- include('header') %>
+<span class="text-gray-200 text-2xl ml-5">Edit karyawan</span>
+
+<form method="post" action="/api/update">
+  <input type="hidden" name="oldNama" value="<%= Karyawan.nama || Karyawan.oldNama  %>">
+    <div class="mb-6 w-[50%] ml-5">
+      <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
+      <input type="text" placeholder="nama" id="nama" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<%= Karyawan.nama %>" required >
+    </div>
+    <div class="mb-6 w-[50%] ml-5">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+      <input placeholder="Email...." id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"value="<%= Karyawan.email %>" required>
+    </div>
+    <div class="mb-6 w-[50%] ml-5">
+        <label for="Color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Favorite Color</label>
+        <input type="text" id="Color" name="Color" placeholder="Favorite Your Color...." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<%= Karyawan.Color %>" required>
+      </div>
+    
+    <button type="submit"  class="ml-5 text-white btn btn-secondary text-xs">Save </button>
+    <button type="submit"  class="ml-5 text-white btn btn-secondary text-xs">Cancel </button>
+  </form>
